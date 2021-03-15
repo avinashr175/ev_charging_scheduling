@@ -36,6 +36,10 @@ cvx_begin
     cost_to_cust = 0;
     maximize(obj)
     subject to
+    for i=1:EV_count
+        soc_ev(i,min(ceil(end_time(i)),T)) == soc_final(i);
+    end
+    
     for t=1:T
         
         for i=1:EV_count
